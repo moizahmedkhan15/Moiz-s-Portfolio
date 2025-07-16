@@ -1,103 +1,133 @@
+"use client";
 import Image from "next/image";
+import ProjectsSection from "@/components/ProjectsSection";
+import { useEffect, useRef, useState } from "react";
+import Typed from "typed.js";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [menuOpen, setMenuOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+
+  const typedElement = useRef(null);
+
+  useEffect(() => {
+    const typed = new Typed(typedElement.current, {
+      strings: ["Web Developer", "Programmer", "Tech Enthusiast"],
+      typeSpeed: 100,
+      backSpeed: 50,
+      loop: true,
+    });
+
+
+    return () => {
+      typed.destroy();  // clean up when component unmounts
+    };
+  }, []);
+
+
+  return (
+    <>
+      <header>
+        <nav>
+          <div className="left">Moiz's Portfolio</div>
+
+          <button className="hamburger" onClick={toggleMenu}>
+            &#9776; {/* This is the ☰ symbol */}
+          </button>
+          <div className={`nav-links ${menuOpen ? "active" : ""}`}>
+            <ul>
+              <li> <a href="#home-section-id">Home </a> </li>
+              <li> <a href="#project-section-id">Projects </a> </li>
+              <li> <a href="#about-section-id">About Me </a> </li>
+              <li> <a href="#contact-section-id">Contact Info </a> </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <section className="firstsection" id="home-section-id">
+          <div className="leftsection">
+            Hi! My Name Is
+            <div><span className="purple">Moiz Ahmed</span></div>
+            <div>And I Am A Passionate
+              <div className="typed-wrapper">
+                <span id="element" ref={typedElement}></span>
+              </div>
+            </div>
+          </div>
+          <div className="rightsection">
+            <img src="bg.png" alt="" />
+          </div>
+        </section>
+
+
+        <section className="secondsection" id="project-section-id">
+
+          <hr />
+          <span className="textpurple">What I Have Done So Far</span>
+          <ProjectsSection />
+        </section>
+
+
+
+        <section className="thirdsection" id="about-section-id">
+          <hr />
+          <span className="textpurple">My Background</span>
+          <br />
+          <div className="about-content">
+
+            <div className="about-image">
+              <img src="/projects/profilepic.jpg" alt="Your photo" />
+            </div>
+            <div className="about-text">
+
+              <p>
+                I am a passionate and dedicated developer with experience in building full-stack applications.
+                I specialize in React, Django, and modern web technologies. I love creating efficient, scalable, and visually appealing solutions.
+              </p>
+
+              <ul>
+                <li><strong>🎓 Qualification:</strong> Advance Diploma in Software Engineering (Aptech Pakistan.)</li>
+                <li><strong> 📍 Location:</strong> Precinct 8, Bahria Town, Karachi</li>
+                <li><strong>🛠️ Skills:</strong> React, Django, JavaScript, Python, SQL, Git</li>
+              </ul>
+              <a className="btn" href="/Moiz Ahmed Khan(CV).docx" download>Download CV</a>
+            </div>
+          </div>
+        </section>
+
+
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="footer">
+
+        <div className="footerfirst">
+          <div>Moiz's Portfolio</div>
+        </div>
+
+        <div className="footersecond" id="contact-section-id">
+          <h3>Contact Info:</h3>
+          <p>
+            📞 <strong>Phone:</strong>{" "} 
+            <a href="tell:+923312512445"> 0331-2512445</a>
+          </p>
+          <p>
+            📧 <strong>Email:</strong>{" "} 
+            <a href="mailto:moizahmedkhan15@gmail.com"> moizahmedkhan15@gmail.com</a>
+          </p>
+          <p>
+            📍 <strong>Location:</strong> House No. 498, Precinct 8, Bahria Town Karachi.
+          </p>
+        </div>
+
+        <div className="footer-copyrights">
+          &copy; 2025 Moiz Ahmed. All rights reserved.
+        </div>
       </footer>
-    </div>
+    </>
   );
 }
