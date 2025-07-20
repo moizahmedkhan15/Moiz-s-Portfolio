@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Moiz's Portfolio",
-  description: "Every important information of Moiz Ahmed is included in this portfolio",
+  description: "Showcasing My Projects",
   icons: {
     icon: "/favicon.ico",
   },
