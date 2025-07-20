@@ -15,7 +15,7 @@ export const metadata = {
   title: "Moiz's Portfolio",
   description: "Every important information of Moiz Ahmed is included in this portfolio",
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.ico",
   },
 };
 
