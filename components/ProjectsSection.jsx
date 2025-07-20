@@ -2,13 +2,6 @@ import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
-    title: "Project One",
-    description: "This is a sample project description.",
-    imgSrc: "/projects/air.jpg", // 👈 Must match actual filename & extension
-    codeLink: "https://github.com/yourrepo/project1",
-    tech: "React, Tailwind, Next.js",
-  },
-  {
     title: "Django Ecommerce WebApp",
     description:
       "Full stack functioning Django and Python based ecommerce website with add to cart, login/signup, admin dashboard and database logic.",
