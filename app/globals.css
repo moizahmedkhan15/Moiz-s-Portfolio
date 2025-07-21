@@ -39,8 +39,16 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: 90px;
-  background-color: #05183d;
   padding: 10px 0;
+  background-color: rgba(5, 24, 61, 0.5);
+  /* transparent version of your color */
+  backdrop-filter: blur(15px);
+  /* 🧊 frost effect */
+  -webkit-backdrop-filter: blur(15px);
+  /* 🧊 Safari support */
+  border-bottom: 1px solid rgba(5, 9, 63, 0.1);
+  /* subtle edge line */
+
   box-shadow: 0 5px 10px rgba(17, 16, 16, 0.35);
 }
 
@@ -80,7 +88,7 @@ nav ul li a:hover {
 
 .left {
   font-size: 1.5rem;
-  color:  #00d1ff;
+  color: #00d1ff;
 }
 
 .firstsection {
@@ -415,11 +423,18 @@ footer {
     display: none;
     width: 100%;
     flex-direction: column;
-    background-color: #05183d;
     position: absolute;
     top: 90px;
     left: 0;
     z-index: 10;
+
+
+    background-color: rgba(5, 24, 61, 0.6);
+    /* translucent */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(5, 9, 63, 0.1)
   }
 
   .leftsection {
