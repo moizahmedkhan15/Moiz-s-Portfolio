@@ -96,7 +96,7 @@ export default function Home() {
                 <li><strong> 📍 Location:</strong> Precinct 8, Bahria Town, Karachi</li>
                 <li><strong>🛠️ Skills:</strong> React, Django, JavaScript, Python, SQL, Git</li>
               </ul>
-              <a className="btn" href="/Moiz Ahmed Khan(CV).docx" download>Download CV</a>
+              <a className="btn" href="/Moiz Ahmed Khan(Scv).pdf" download>Download CV</a>
             </div>
           </div>
         </section>
